@@ -5,5 +5,8 @@ import (
 )
 
 func main() {
-	btree.ExampleCode("Hello World")
+	err := btree.SplitLine("SELECT * FROM t1")
+	if err != nil {
+		panic(err)
+	}
 }
