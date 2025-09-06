@@ -1,12 +1,15 @@
 package main
 
 import (
-	"github.com/kaushtubhkanishk/streamlens/internal/btree"
+	"os"
+
+	"github.com/kaushtubhkanishk/streamlens/SQLEngine"
+	"github.com/rs/zerolog"
 )
 
 func main() {
-	err := btree.SplitLine("SELECT * FROM t1")
-	if err != nil {
-		panic(err)
-	}
+	zerolog.SetGlobalLevel(zerolog.DebugLevel)
+	log := zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout}).With().Timestamp().Logger()
+	s := "SELECT * FROM USERS"
+	SQLEngine.Tokenize(s, log)
 }
