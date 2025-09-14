@@ -9,7 +9,7 @@ import (
 
 func main() {
 	zerolog.SetGlobalLevel(zerolog.DebugLevel)
-	log := zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout}).With().Timestamp().Logger()
-	s := "SELECT * FROM USERS"
-	SQLEngine.Tokenize(s, log)
+	//log := zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout}).With().Timestamp().Logger()
+	//s := "SELECT * FROM USERS"
+	SQLEngine.Tokenize(os.Stdin, os.Stdout)
 }

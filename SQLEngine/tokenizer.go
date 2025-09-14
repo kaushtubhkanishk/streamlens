@@ -1,24 +1,30 @@
 package SQLEngine
 
 import (
-	"strings"
+	"bufio"
+	"fmt"
+	"io"
 
-	log "github.com/rs/zerolog"
+	"github.com/kaushtubhkanishk/streamlens/internal/lexer"
 )
 
-type Token struct {
-	value string
-}
+const PROMPT = ">>"
 
-func Tokenize(text string, log log.Logger) []Token {
-	var tokens []Token
-	texts := strings.Split(text, " ")
-	for _, text := range texts {
-		tokens = append(tokens, Token{text})
+func Tokenize(in io.Reader, out io.Writer) {
+	scanner := bufio.NewScanner(in)
+
+	for {
+		fmt.Printf(PROMPT)
+		scanned := scanner.Scan()
+		if !scanned {
+			return
+		}
+
+		line := scanner.Text()
+		l := lexer.NewLexer(line)
+
+		for tok := l.NextToken(); tok.TokenType != lexer.EOF; tok = l.NextToken() {
+			fmt.Printf("%+v\n", tok)
+		}
 	}
-	log.Debug().Msgf("The tokens present in the string are:\n ")
-	for _, token := range tokens {
-		log.Debug().Msgf("%s ", token.value)
-	}
-	return tokens
 }
