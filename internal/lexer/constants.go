@@ -14,8 +14,10 @@ const (
 	RIGHTPARENTHESE TokenType = ")"
 	ILLEGAL         TokenType = "ILLEGAL"
 	IDENTIFIER      TokenType = "IDENTIFIER"
-	EOF             TokenType = ""
+	EOF             TokenType = "EOF"
 	SELECT          TokenType = "SELECT"
-	STAR            TokenType = "*"
+	ASTERISK        TokenType = "*"
 	FROM            TokenType = "FROM"
+	WHERE           TokenType = "WHERE"
+	SLASH           TokenType = "/"
 )
