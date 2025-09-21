@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb0ef790-59c9-4cf9-bcd6-47eca5f47f46" name="Changes" comment="Add the basic lexer">
+    <list default="true" id="cb0ef790-59c9-4cf9-bcd6-47eca5f47f46" name="Changes" comment="Fix bug of whitespace">
+      <change afterPath="$PROJECT_DIR$/internal/parser/interface.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/parser/parser.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/token/token.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/lexer/constants.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/lexer/constants.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQLEngine/tokenizer.go" beforeDir="false" afterPath="$PROJECT_DIR$/SQLEngine/tokenizer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/lexer/constants.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/token/constants.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/lexer/lexer.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/lexer/lexer.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,29 +42,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "Go Build.go build main.go.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.GoLinterPluginOnboarding": "true",
-    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/kaushtubhkanishk/Documents/projects/streamlens/cmd/StreamLens/main.go",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "go"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go Build.go build main.go.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginOnboarding&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kaushtubhkanishk/Documents/code-reading-repos/bento&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;go&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal/token" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="go run ./cmd/main.go" />
@@ -104,7 +113,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add the basic tokenizer" />
     <MESSAGE value="Add the basic lexer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add the basic lexer" />
+    <MESSAGE value="Fix bug of whitespace" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug of whitespace" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -114,13 +124,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/internal/lexer/lexer.go</url>
-          <line>136</line>
+          <line>143</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/internal/lexer/lexer.go</url>
-          <line>137</line>
+          <line>144</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/lexer/lexer.go</url>
+          <line>101</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -6,6 +6,7 @@ import (
 	"io"
 
 	"github.com/kaushtubhkanishk/streamlens/internal/lexer"
+	"github.com/kaushtubhkanishk/streamlens/internal/token"
 )
 
 const PROMPT = ">>"
@@ -23,7 +24,7 @@ func Tokenize(in io.Reader, out io.Writer) {
 		line := scanner.Text()
 		l := lexer.NewLexer(line)
 
-		for tok := l.NextToken(); tok.TokenType != lexer.EOF; tok = l.NextToken() {
+		for tok := l.NextToken(); tok.TokenType != token.EOF; tok = l.NextToken() {
 			fmt.Printf("%+v\n", tok)
 		}
 	}

@@ -2,14 +2,9 @@ package lexer
 
 import (
 	"strings"
+
+	"github.com/kaushtubhkanishk/streamlens/internal/token"
 )
-
-type TokenType string
-
-type Token struct {
-	TokenType TokenType
-	Value     string
-}
 
 type Lexer struct {
 	currentPosition int
@@ -81,72 +76,84 @@ func (l *Lexer) skipWhitespace() {
 	}
 }
 
-func (l *Lexer) NextToken() Token {
-	var token Token
+func (l *Lexer) NextToken() token.Token {
+	tok := token.NewToken("", "")
 	l.skipWhitespace()
 	switch l.currentChar {
 	case '+':
-		token = Token{PLUS, string(l.currentChar)}
+		tok.TokenType = token.PLUS
+		tok.Value = string(l.currentChar)
 	case '-':
-		token = Token{MINUS, string(l.currentChar)}
+		tok.TokenType = token.MINUS
+		tok.Value = string(l.currentChar)
 	case '=':
 		if char := l.PeekChar(); char == '=' {
 			l.ReadChar()
-			token = Token{EQUAL, "=="}
+			tok.TokenType = token.EQUAL
+			tok.Value = string(l.currentChar)
 		} else {
-			token.TokenType = ASSIGN
-			token.Value = string(l.currentChar)
+			tok.TokenType = token.ASSIGN
+			tok.Value = string(l.currentChar)
 		}
 	case '{':
-		token = Token{LEFTBRACKET, string(l.currentChar)}
+		tok.TokenType = token.LEFTBRACKET
+		tok.Value = string(l.currentChar)
 	case '}':
-		token = Token{RIGHTBRACKET, string(l.currentChar)}
+		tok.TokenType = token.RIGHTBRACKET
+		tok.Value = string(l.currentChar)
 	case '!':
 		if char := l.PeekChar(); char == '=' {
 			l.ReadChar()
-			token = Token{NEQUAL, "!="}
+			tok.TokenType = token.BANG
+			tok.Value = string(l.currentChar)
 		} else {
-			token = Token{BANG, string(l.currentChar)}
+			tok.TokenType = token.NEQUAL
+			tok.Value = string(l.currentChar)
 		}
 	case '(':
-		token = Token{LEFTPARENTHESE, string(l.currentChar)}
+		tok.TokenType = token.LEFTPARENTHESE
+		tok.Value = string(l.currentChar)
 	case ')':
-		token = Token{RIGHTPARENTHESE, string(l.currentChar)}
+		tok.TokenType = token.RIGHTPARENTHESE
+		tok.Value = string(l.currentChar)
 	case '*':
-		token = Token{ASTERISK, string(l.currentChar)}
+		tok.TokenType = token.ASTERISK
+		tok.Value = string(l.currentChar)
 	case '/':
-		token = Token{SLASH, string(l.currentChar)}
+		tok.TokenType = token.SLASH
+		tok.Value = string(l.currentChar)
 	case 0:
-		token = Token{EOF, ""}
+		tok.TokenType = token.EOF
+		tok.Value = string(l.currentChar)
 	default:
 		if l.isLetter(l.currentChar) {
-			token.Value = l.ReadIdentifier()
-			if tokenType := isKeyword(token.Value); tokenType != "" {
-				token.TokenType = tokenType
+			tok.Value = l.ReadIdentifier()
+			if tokenType := isKeyword(tok.Value); tokenType != "" {
+				tok.TokenType = tokenType
 			} else {
-				token.TokenType = IDENTIFIER
+				tok.TokenType = token.IDENTIFIER
 			}
 		} else if l.isDigit(l.currentChar) {
-			token.TokenType = NUMBER
-			token.Value = l.ReadNumber()
+			tok.TokenType = token.NUMBER
+			tok.Value = l.ReadNumber()
 		} else {
-			token.TokenType = ILLEGAL
-			token.Value = string(l.currentChar)
+			tok.TokenType = token.ILLEGAL
+			tok.Value = string(l.currentChar)
 		}
 	}
 	l.ReadChar()
-	return token
+	return *tok
 }
 
-func isKeyword(value string) TokenType {
+func isKeyword(value string) token.TokenType {
 	value = strings.ToUpper(value)
 	switch value {
 	case "SELECT":
-		return SELECT
+		return token.SELECT
 	case "FROM":
-		return FROM
+		return token.FROM
 	case "WHERE":
-		return WHERE
+		return token.WHERE
 	}
 	return ""
 }
