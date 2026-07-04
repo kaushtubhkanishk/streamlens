@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb0ef790-59c9-4cf9-bcd6-47eca5f47f46" name="Changes" comment="Fix bug of whitespace">
-      <change afterPath="$PROJECT_DIR$/internal/parser/interface.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/parser/parser.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/token/token.go" afterDir="false" />
+    <list default="true" id="cb0ef790-59c9-4cf9-bcd6-47eca5f47f46" name="Changes" comment="Pushing latest change">
+      <change afterPath="$PROJECT_DIR$/internal/parser/clause.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/parser/expression.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/parser/statement.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQLEngine/tokenizer.go" beforeDir="false" afterPath="$PROJECT_DIR$/SQLEngine/tokenizer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/lexer/constants.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/token/constants.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/lexer/lexer.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/lexer/lexer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/parser/interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/parser/interface.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/parser/parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/parser/parser.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +57,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kaushtubhkanishk/Documents/code-reading-repos/bento&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kaushtubhkanishk/Documents/code-reading-repos/gosnowflake&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -114,7 +113,8 @@
     <MESSAGE value="Add the basic tokenizer" />
     <MESSAGE value="Add the basic lexer" />
     <MESSAGE value="Fix bug of whitespace" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug of whitespace" />
+    <MESSAGE value="Pushing latest change" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pushing latest change" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -131,11 +131,6 @@
           <url>file://$PROJECT_DIR$/internal/lexer/lexer.go</url>
           <line>144</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/internal/lexer/lexer.go</url>
-          <line>101</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

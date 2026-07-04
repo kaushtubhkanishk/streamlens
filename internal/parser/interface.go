@@ -13,3 +13,8 @@ type Expression interface {
 	Node
 	expressionNode()
 }
+
+type Clause interface {
+	Node
+	clauseNode()
+}

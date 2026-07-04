@@ -1,24 +1,14 @@
 package parser
 
-import "github.com/kaushtubhkanishk/streamlens/internal/token"
+import "github.com/kaushtubhkanishk/streamlens/internal/lexer"
 
-type selectStatement struct {
-	literal token.Token
-	table   string
-	cols    []string
+type parser struct {
+	l *lexer.Lexer
 }
 
-//func NewSelectStatement(tok token.Token, table string) *selectStatement {
-//	return &selectStatement{
-//		tok:   literal,
-//		table: table,
-//	}
-//}
-
-func (s *selectStatement) TokenLiteral() string {
-	return s.literal.Value
+func newParser(l *lexer.Lexer) *parser {
+	return &parser{l: l}
 }
 
-func (s *selectStatement) statementNode() {
-
+func (parser *parser) parseQuery() {
 }
